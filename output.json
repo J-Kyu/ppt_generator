@@ -1,0 +1,72 @@
+{
+    "slides": [
+        {
+            "slide_index": 0,
+            "layout_name": "Title Slide",
+            "shapes": [
+                {
+                    "shape_index": 0,
+                    "shape_type": "PLACEHOLDER",
+                    "left": 0.75,
+                    "top": 2.329861111111111,
+                    "width": 8.5,
+                    "height": 1.6076388888888888,
+                    "has_text_frame": true,
+                    "text": "My Sample Presentation"
+                },
+                {
+                    "shape_index": 1,
+                    "shape_type": "PLACEHOLDER",
+                    "left": 1.5,
+                    "top": 4.25,
+                    "width": 7.0,
+                    "height": 1.9166666666666667,
+                    "has_text_frame": true,
+                    "text": "Created with Python"
+                }
+            ]
+        },
+        {
+            "slide_index": 1,
+            "layout_name": "Title and Content",
+            "shapes": [
+                {
+                    "shape_index": 0,
+                    "shape_type": "PLACEHOLDER",
+                    "left": 0.5,
+                    "top": 0.3003477690288714,
+                    "width": 9.0,
+                    "height": 1.25,
+                    "has_text_frame": true,
+                    "text": "Features"
+                },
+                {
+                    "shape_index": 1,
+                    "shape_type": "PLACEHOLDER",
+                    "left": 0.5,
+                    "top": 1.75,
+                    "width": 9.0,
+                    "height": 4.9496533245844265,
+                    "has_text_frame": true,
+                    "text": "\nThis is a feature.\nSub-feature one.\nSub-feature two."
+                }
+            ]
+        },
+        {
+            "slide_index": 2,
+            "layout_name": "Blank",
+            "shapes": [
+                {
+                    "shape_index": 0,
+                    "shape_type": "TEXT_BOX",
+                    "left": 1.0,
+                    "top": 1.0,
+                    "width": 1.0,
+                    "height": 1.0,
+                    "has_text_frame": true,
+                    "text": "Custom text on blank slide."
+                }
+            ]
+        }
+    ]
+}
