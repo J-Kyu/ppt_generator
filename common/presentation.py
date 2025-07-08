@@ -16,10 +16,10 @@ class SinglePresentation:
 
     def add_song_layout(self, title: str, text: str):
         slide: Slide = self.__ref_pptx.slides.add_slide(slide_layout=self.__song_layout)
-        for shape in slide.placeholders:
-            print(f"=> {shape.placeholder_format.idx}|{shape.name}")
+        # for shape in slide.placeholders:
+        #     print(f"=> {shape.placeholder_format.idx}|{shape.name}")
 
-        print("==================================\n")
+        # print("==================================\n")
         slide.shapes.placeholders[0].text = title
         slide.placeholders[10].text = text
         # slide.placeholders[10].s
