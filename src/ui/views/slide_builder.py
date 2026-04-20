@@ -1,10 +1,11 @@
 import flet as ft
-from src.state.app_state import app_state
-from src.core.schema import SlideSchema
+from state.app_state import app_state
+from core.schema import SlideSchema
 import copy
 
 class SlideBuilderView(ft.View):
     def __init__(self, page: ft.Page):
+        print("SlideBuilderView")
         super().__init__(route="/slide_builder")
         self._page = page
         self.scroll = ft.ScrollMode.AUTO

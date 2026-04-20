@@ -1,8 +1,9 @@
 import flet as ft
-from src.state.app_state import app_state
+from state.app_state import app_state
 
 class LayoutPickerView(ft.View):
     def __init__(self, page: ft.Page):
+        print("LayoutPickerView")
         super().__init__(route="/layout_picker")
         self._page = page
         self.scroll = ft.ScrollMode.AUTO
