@@ -1,14 +1,26 @@
 import flet as ft
 
 def main(page: ft.Page):
-    page.title = "PPT Generator"
+    page.title = "Flet counter example"
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
-    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+
+    input = ft.TextField(value="0", text_align=ft.TextAlign.RIGHT, width=100)
+
+    def minus_click(e):
+        input.value = str(int(input.value) - 1)
+
+    def plus_click(e):
+        input.value = str(int(input.value) + 1)
 
     page.add(
-        ft.Text("Hello, PPT Generator!", size=30, weight=ft.FontWeight.BOLD),
-        ft.ElevatedButton("Upload PPTX")
+        ft.Row(
+            alignment=ft.MainAxisAlignment.CENTER,
+            controls=[
+                ft.IconButton(ft.Icons.REMOVE, on_click=minus_click),
+                input,
+                ft.IconButton(ft.Icons.ADD, on_click=plus_click),
+            ],
+        )
     )
 
-if __name__ == "__main__":
-    ft.app(target=main)
+ft.run(main)
