@@ -1,21 +1,27 @@
 import flet as ft
-from src.core.engine import analyze_ppt, PPTAnalyzeError
-from src.state.app_state import app_state
+from core.engine import analyze_ppt, PPTAnalyzeError
+from state.app_state import app_state
 
 class OnboardingView(ft.View):
-    def __init__(self, page: ft.Page):
+    def __init__(self, page: ft.Page, file_picker: ft.FilePicker):
+        print("OnboardingView")
         super().__init__(route="/")
         self._page = page
+        self.file_picker = file_picker
+        self.file_picker.on_result = self.on_picker_result
         
         self.title_text = ft.Text("PPT Layout Builder", size=32, weight=ft.FontWeight.BOLD)
         self.desc_text = ft.Text("Select a template PPTX file to analyze its master layouts.", size=16)
         
-        self.file_picker = ft.FilePicker()
-        if self.file_picker not in self._page.overlay:
-            self._page.overlay.append(self.file_picker)
-        
-        self.select_btn = ft.ElevatedButton(
-            "Select Template PPTX",
+        # elavated button
+        # self.select_btn = ft.ElevatedButton(
+        #     "Select Template PPTX",
+        #     icon=ft.Icons.UPLOAD_FILE,
+        #     on_click=self.on_file_selected
+        # )
+
+        self.select_btn = ft.Button(
+            content="Pick test",
             icon=ft.Icons.UPLOAD_FILE,
             on_click=self.on_file_selected
         )
@@ -44,10 +50,20 @@ class OnboardingView(ft.View):
         ])
 
     async def on_file_selected(self, e):
-        files = await self.file_picker.pick_files(
-            allowed_extensions=["pptx"],
-            file_type=ft.FilePickerFileType.CUSTOM
-        )
+        # Open the file picker dialog
+        try:
+            await self.file_picker.pick_files(
+                allowed_extensions=["pptx"],
+                file_type=ft.FilePickerFileType.CUSTOM
+            )
+        except Exception as ex:
+            print(f"DEBUG: Error calling pick_files: {ex}")
+
+
+    def on_picker_result(self, e):
+        files = e.files
+        print(f"files: {files}")
+
         if files and len(files) > 0:
             file_path = files[0].path
             self.spinner.visible = True
