@@ -1,6 +1,11 @@
+"""
+This module contains the main routing logic and application setup for the PPT Generator UI.
+It configures the Flet page, defines the views, and manages navigation between different screens.
+"""
 import flet as ft
 import os
 import sys
+from loguru import logger
 
 # Append the project root to sys.path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
@@ -16,6 +21,7 @@ def main_routing(page: ft.Page):
     page.padding = 20
 
     def route_change(e: ft.RouteChangeEvent | None = None):
+        logger.info(f"Route changed to: {page.route}")
         page.views.clear()
         
         if page.route == "/":

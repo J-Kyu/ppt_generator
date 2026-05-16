@@ -1,8 +1,14 @@
+"""
+This module defines the ExportView, which handles the final steps of
+the workflow, allowing the user to export and save their presentation.
+"""
 import flet as ft
+from loguru import logger
 
 class ExportView(ft.View):
     def __init__(self, page: ft.Page):
         super().__init__(route="/export")
+        logger.info("ExportView instance created")
         self._page = page
         
         self.controls.extend([

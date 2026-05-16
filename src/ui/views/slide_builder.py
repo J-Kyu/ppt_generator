@@ -1,8 +1,14 @@
+"""
+This module defines the SlideBuilderView, where the user can customize
+and build individual slides for their presentation.
+"""
 import flet as ft
+from loguru import logger
 
 class SlideBuilderView(ft.View):
     def __init__(self, page: ft.Page):
         super().__init__(route="/slide_builder")
+        logger.info("SlideBuilderView instance created")
         self._page = page
         
         self.controls.extend([
